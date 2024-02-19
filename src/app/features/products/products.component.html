@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>Produits</h1>
+  <button [routerLink]="['/cart']">
+    Panier 🛒 ( <strong>{{ cartLength() }}</strong> )
+  </button>
+</div>
+
+<label for="category-select">Filtrer par catégorie: </label>
+<select
+  name="categories"
+  id="category-select"
+  (change)="onCategoryChange($event)"
+>
+  <option value=""></option>
+  @for (type of productTypeEnum | keyvalue; track type.key) {
+  <option [value]="type.value">
+    {{ type.key }}
+  </option>
+  }
+</select>
+
+<section class="product-list">
+  @for (product of filteredProducts(); track product.id) {
+  <app-product-item [product]="product" />
+  }
+</section>
