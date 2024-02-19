@@ -17,3 +17,5 @@ This is a simple Angular application for managing a shopping cart of products.
 ## Important Notice
 
 Please note that this application does not currently implement local storage for the shopping cart. Therefore, the cart items will not persist across page refreshes or browser sessions.
+
+Additionally, the styling of the app is not fully polished due to time constraints.
