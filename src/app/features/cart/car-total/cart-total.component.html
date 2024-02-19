@@ -1,0 +1,12 @@
+@if (items().length) {
+<div class="cart-total">
+  <p>
+    Total Taxes :
+    <strong class="total-value"> {{ totalTaxes() | currency }}</strong>
+  </p>
+  <p>
+    Total TTC :
+    <strong class="total-value"> {{ totalTTC() | currency }}</strong>
+  </p>
+</div>
+}
