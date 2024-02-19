@@ -1,0 +1,24 @@
+@if (product(); as product) {
+<div class="product">
+  <h3>{{ product.productName || "-" }}</h3>
+  <div>
+    Categorie: <strong>{{ product.category }}</strong>
+  </div>
+  <div>
+    Prix: <strong>{{ product.price | currency }}</strong>
+  </div>
+  <div class="actions">
+    @if( product.quantity ){
+    <span class="quantity"
+      >Qté: <strong>{{ product.quantity }}</strong>
+    </span>
+    } @else {
+    <span class="not-available">Non disponible</span>
+    }
+
+    <button [disabled]="!product.quantity" (click)="addToCart(product)">
+      Ajouter
+    </button>
+  </div>
+</div>
+}
