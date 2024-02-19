@@ -1,0 +1,31 @@
+@if (item(); as product) {
+<div class="cart-item">
+  <h3>{{ product.productName }}</h3>
+  <p>
+    Quantité: <strong>{{ product.quantity }}</strong>
+  </p>
+  <p>
+    Prix unitaire HT: <strong>{{ product.price }}</strong>
+  </p>
+  Taxes:
+  <ul>
+    <li>
+      TVA: <strong>{{ product | tvaTax | currency }}</strong>
+    </li>
+    <li>
+      Importation: <strong>{{ product | importTax | currency }}</strong>
+    </li>
+  </ul>
+
+  <p>
+    Prix unitaire TTC : <strong> {{ product | priceTTC | currency }}</strong>
+  </p>
+  <p class="total-price">
+    Prix totale TTC :
+    <strong class="value">
+      {{ (product | priceTTC) * product.quantity | currency }}
+    </strong>
+  </p>
+  <button (click)="removeFromCart(product)">Supprimer</button>
+</div>
+}
